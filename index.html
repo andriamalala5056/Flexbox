@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Flexbox</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="assets/favicon.ico">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+		<h1>Flexbox</h1>
+		<h2>Définition :</h2>
+		<p>FlexBox (pourFlexible Box) est un mode de mise en page prévoyant une disposition des éléments d'une page de telle sorte que ces éléments possèdent un comportement prévisible lorsqu'ils doivent s'accommoder de différentes tailles d'écrans/appareils.</p>
+		<span class="right">Source : developer.mozilla.org</span>
+
+		<hr>
+		<h2>1. Display:flex :</h2>
+		<p>L'affichage ci-dessous montre trois blocs dans un conteneur, ici le containeur n'est pas encore en mode "flex".</p>
+		<div class="noflex">
+			<div class="element"></div>
+			<div class="element"></div>
+			<div class="element"></div>
+		</div>
+		<div class="separator"></div>
+		<p>Voyons maintenant comment est la disposition des blocs après display:flex de notre containeur</p>
+		<div class="container">
+			<div class="element"></div>
+			<div class="element"></div>
+			<div class="element"></div>
+		</div>
+		<pre class="code language-css">
+<span class="yellow">.container</span> {
+    <span class="blue">display</span>: <span class="red">flex</span>;
+}
+		</pre>
+		<pre class="code language-html">
+&lt;<span class="blue">div</span> class="<span class="red">container</span>"&gt;
+    &lt;<span class="blue">div</span> <span class="lightblue">class</span>="<span class="red">element-1</span>">&lt;/<span class="blue">div</span>&gt;
+    &lt;<span class="blue">div</span> <span class="lightblue">class</span>="<span class="red">element-2</span>">&lt;/<span class="blue">div</span>&gt;
+    &lt;<span class="blue">div</span> <span class="lightblue">class</span>="<span class="red">element-3</span>">&lt;/<span class="blue">div</span>&gt;
+&lt;/<span class="blue">div</span>&gt;
+		</pre>
+
+		<div class="separator"></div>
+		<h2>2. Flex-direction :</h2>
+		<p>Pour flex-direction, plusieurs paramètres sont disponibles...<br>
+		Voici les listes :<br>
+		<ul>
+			<li>row (affiche les éléments sur une ligne)</li>
+			<li>column (affiche les éléments en colonne)</li>
+			<li>row-reverse (affichage en ligne mais renversé)</li>
+			<li>column-reverse (affichage en colonne mais renversé)</li>
+		</ul></p>
+		<div class="container flexdir-row-rev">
+			<div class="element"></div>
+			<div class="element"></div>
+			<div class="element"></div>
+		</div>
+		<pre class="code language-css">
+<span class="yellow">.container</span> {
+    <span class="blue">display</span>: <span class="red">flex</span>;
+    <span class="blue">flex-direction</span>: <span class="red">row-reverse</span>;
+}
+		</pre>
+		<p>Les autres paramètres pour flex-direction s'utilisent de la même manière. Voici un autre exemple pour "column-reverse"</p>
+		<div class="container flexdir-col-rev">
+				<div class="element"></div>
+				<div class="element"></div>
+				<div class="element"></div>
+			</div>
+			<pre class="code language-css">
+<span class="yellow">.container</span> {
+    <span class="blue">display</span>: <span class="red">flex</span>;
+    <span class="blue">flex-direction</span>: <span class="red">column-reverse</span>;
+}
+			</pre>
+		<p>Nous pouvons constater que le jaune et le bleu se sont échangés de place.</p>
+
+		<div class="separator"></div>
+		<h2>3. Flex-wrap :</h2>
+		<p>Flex-wrap permet de mettre à la ligne les éléments automatiquement quand ces derniers n'on plus d'espace disponible.<br>
+		Nous avons 3 paramètres pour flex-wrap</p>
+		<ul>
+			<li>wrap</li>
+			<li>wrap-reverse</li>
+			<li>nowrap</li>
+		</ul>
+		<p>Prenons l'exemple de row-reverse, si on reduit le navigateur les éléments se rétrecient et se collent entre eux, mais l'exemple suivant vous montre le contraire</p>
+		<div class="container flexdir-row-rev flwrap">
+			<div class="element"></div>
+			<div class="element"></div>
+			<div class="element"></div>
+		</div>
+		<pre class="code language-css">
+<span class="yellow">.container</span> {
+    <span class="blue">display</span>: <span class="red">flex</span>;
+    <span class="blue">flex-direction</span>: <span class="red">row-reverse</span>;
+    <span class="blue">wrap</span>: <span class="red">wrap</span>;
+}
+		</pre>
+		<p>L'élément mise à la ligne se met à droite car on a pris l'exemple pour row-reverse. Voyons un autre exemple sans le "row-reverse".</p>
+		<div class="container flwrap">
+			<div class="element"></div>
+			<div class="element"></div>
+			<div class="element"></div>
+		</div>
+		<pre class="code language-css">
+<span class="yellow">.container</span> {
+    <span class="blue">display</span>: <span class="red">flex</span>;
+    <span class="blue">wrap</span>: <span class="red">wrap</span>;
+}
+		</pre>
+		<div class="separator"></div>
+		<h2>4. Justify-content :</h2>
+		<p>Justify-content permet d'aligner les éléments dans le conteneur horizontalement.<br>
+		Nous avons :</p>
+		<ul>
+			<li>flex-start</li>
+			<li>flex-end</li>
+			<li>space-between</li>
+			<li>space-around</li>
+			<li>center</li>
+		</ul>
+	</div>
+</body>
+</html>
