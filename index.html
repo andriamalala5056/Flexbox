@@ -12,7 +12,7 @@
 		<h1>Flexbox</h1>
 		<h2>Définition :</h2>
 		<p>FlexBox (pourFlexible Box) est un mode de mise en page prévoyant une disposition des éléments d'une page de telle sorte que ces éléments possèdent un comportement prévisible lorsqu'ils doivent s'accommoder de différentes tailles d'écrans/appareils.</p>
-		<span class="right">Source : developer.mozilla.org</span>
+		<span>Source : developer.mozilla.org</span>
 
 		<hr>
 		<h2>1. Display:flex :</h2>
@@ -65,16 +65,16 @@
 		</pre>
 		<p>Les autres paramètres pour flex-direction s'utilisent de la même manière. Voici un autre exemple pour "column-reverse"</p>
 		<div class="container flexdir-col-rev">
-				<div class="element"></div>
-				<div class="element"></div>
-				<div class="element"></div>
-			</div>
-			<pre class="code language-css">
+			<div class="element"></div>
+			<div class="element"></div>
+			<div class="element"></div>
+		</div>
+		<pre class="code language-css">
 <span class="yellow">.container</span> {
     <span class="blue">display</span>: <span class="red">flex</span>;
     <span class="blue">flex-direction</span>: <span class="red">column-reverse</span>;
 }
-			</pre>
+		</pre>
 		<p>Nous pouvons constater que le jaune et le bleu se sont échangés de place.</p>
 
 		<div class="separator"></div>
@@ -122,6 +122,133 @@
 			<li>space-around</li>
 			<li>center</li>
 		</ul>
+		<p>Voyons un exemple pour "space-between"</p>
+		<div class="container space-btwn">
+			<div class="element"></div>
+			<div class="element"></div>
+			<div class="element"></div>
+		</div>
+		<pre class="code language-css">
+<span class="yellow">.container</span> {
+    <span class="blue">display</span>: <span class="red">flex</span>;
+    <span class="blue">justify-content</span>: <span class="red">space-between</span>;
+}
+		</pre>
+		<p>Les éléments s'étendent sur toute la largeur du conteneur avec des espacements égaux, même cas pour "space-around" sauf qu'il ajoute une marge à droite et à gauche pour l'ensemble des éléments.</p>
+		<div class="separator"></div>
+		<h2>5. Align-items :</h2>
+		<p>Align-items permet d'aligner l'ensemble des éléments verticalement.</p>
+		<ul>
+			<li>flex-start</li>
+			<li>flex-end</li>
+			<li>center</li>
+		</ul>
+		<div class="container align-item">
+			<div class="element"></div>
+			<div class="element"></div>
+			<div class="element"></div>
+		</div>
+		<pre class="code language-css">
+<span class="yellow">.container</span> {
+    <span class="blue">display</span>: <span class="red">flex</span>;
+    <span class="blue">align-items</span>: <span class="red">center</span>;
+    <span class="blue">height</span>: <span class="red">400px</span>; <span class="comment">/* Juste pour qu'on puisse voir que les éléments sont bien centrés verticalement */</span>
+}
+		</pre>
+		<p>Si vous voulez placer les éléments au centre du conteneur, c'est à dire verticalement et horizontalement, il suffit juste d'ajouter "justify-content:center" à ce code, en voici un exemple :</p>
+		<div class="container align-item justif-center">
+			<div class="element"></div>
+			<div class="element"></div>
+			<div class="element"></div>
+		</div>
+		<pre class="code language-css">
+<span class="yellow">.container</span> {
+    <span class="blue">display</span>: <span class="red">flex</span>;
+    <span class="blue">align-items</span>: <span class="red">center</span>;
+    <span class="blue">justify-content</span>: <span class="red">center</span>;
+    <span class="blue">height</span>: <span class="red">400px</span>; <span class="comment">/* Juste pour qu'on puisse voir que les éléments sont bien centrés verticalement */</span>
+}
+		</pre>
+		<div class="separator"></div>
+		<h2>6. Align-self :</h2>
+		<p>L'align-self s'applique aux éléments dans le conteneur, c'est à dire que le css selecteur css cible les éléments.</p>
+		<ul>
+			<li>flex-start</li>
+			<li>flex-end</li>
+			<li>center</li>
+		</ul>
+		<div class="container align-item">
+			<div class="element">1</div>
+			<div class="element element-2">2</div>
+			<div class="element">3</div>
+		</div>
+		<pre class="code language-css">
+<span class="yellow">.container</span> {
+    <span class="blue">display</span>: <span class="red">flex</span>;
+    <span class="blue">align-items</span>: <span class="red">center</span>;
+}
+
+<span class="yellow">.element-1</span> {
+    <span class="blue">align-self</span>: <span class="red">flex-start</span>;
+}
+		</pre>
+		<div class="separator"></div>
+		<h2>7. Order :</h2>
+		<p>Voyons comment choisir l'ordre des éléments...</p>
+		<div class="container">
+			<div class="element">1</div>
+			<div class="element">2</div>
+			<div class="element">3</div>
+		</div>
+		<p>Nous allons metter l'élément 3 à la place de 1 pour donner cet ordre (312)</p>
+		<div class="container">
+			<div class="element">1</div>
+			<div class="element">2</div>
+			<div class="element element-3">3</div>
+		</div>
+		<pre class="code language-css">
+<span class="yellow">.container</span> {
+    <span class="blue">display</span>: <span class="red">flex</span>;
+}
+
+<span class="yellow">.element-3</span> {
+    <span class="blue">order</span>: <span class="red">-1</span>;
+}
+		</pre>
+		<pre class="code language-html">
+&lt;<span class="blue">div</span> class="<span class="red">container</span>"&gt;
+    &lt;<span class="blue">div</span> <span class="lightblue">class</span>="<span class="red">element-1</span>">&lt;/<span class="blue">div</span>&gt;
+    &lt;<span class="blue">div</span> <span class="lightblue">class</span>="<span class="red">element-2</span>">&lt;/<span class="blue">div</span>&gt;
+    &lt;<span class="blue">div</span> <span class="lightblue">class</span>="<span class="red">element-3</span>">&lt;/<span class="blue">div</span>&gt;
+&lt;/<span class="blue">div</span>&gt;
+		</pre>
+		<div class="separator"></div>
+		<h2>8. Flex : flex :</h2>
+		<p>Pour terminer nous allons voir comment déterminer l'espace occupé par un élément</p>
+		<div class="container">
+			<div class="element element-1">1</div>
+			<div class="element">2</div>
+			<div class="element">3</div>
+		</div>
+		<pre class="code language-css">
+<span class="yellow">.container</span> {
+    <span class="blue">display</span>: <span class="red">flex</span>;
+}
+
+<span class="yellow">.element-1</span> {
+    <span class="blue">flex</span>: <span class="red">1</span>;
+}
+		</pre>
+		<pre class="code language-html">
+&lt;<span class="blue">div</span> class="<span class="red">container</span>"&gt;
+    &lt;<span class="blue">div</span> <span class="lightblue">class</span>="<span class="red">element-1</span>">&lt;/<span class="blue">div</span>&gt;
+    &lt;<span class="blue">div</span> <span class="lightblue">class</span>="<span class="red">element-2</span>">&lt;/<span class="blue">div</span>&gt;
+    &lt;<span class="blue">div</span> <span class="lightblue">class</span>="<span class="red">element-3</span>">&lt;/<span class="blue">div</span>&gt;
+&lt;/<span class="blue">div</span>&gt;
+		</pre>
+		<p>La première élément a occupée toute l'espace disponible...</p>
+		<div class="separator"></div>
+		<p>Par ANDO Andriamalala</p>
 	</div>
 </body>
 </html>

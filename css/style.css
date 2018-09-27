@@ -40,6 +40,11 @@ hr {
 .element {
     height: 150px;
     width: 150px;
+    color: white;
+    font-size: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .element:nth-child(1) {
@@ -59,6 +64,7 @@ pre {
     color: white;
     border-radius: 5px;
     padding: 15px 15px 0px 15px;
+    overflow-x: scroll;
 }
 
 .language-css {
@@ -104,4 +110,33 @@ span.lightblue {
 
 .flwraprev {
     flex-wrap: wrap-reverse;
+}
+
+.space-btwn {
+    justify-content: space-between;
+}
+
+.align-item {
+    height: 400px;
+    align-items: center;
+}
+
+span.comment {
+    color: #4e4e4e;
+}
+
+.justif-center {
+    justify-content: center;
+}
+
+.element-2 {
+    align-self: flex-start;
+}
+
+.element-3 {
+    order: -1;
+}
+
+.element-1 {
+    flex: 1;
 }
